@@ -1,0 +1,41 @@
+.container {
+    width: 960px;
+    margin: 0 auto;
+    background-color: #eee;
+    margin-bottom: 20px;
+}
+
+.clearfix { clear: both; }
+
+.fix-1 .sidebar, .fix-1 .content {
+    box-sizing: border-box; 
+}
+.fix-1 .sidebar {
+    width: 300px; 
+    padding: 20px;
+    border: 1px solid #ccc;
+    float: left;
+    background: #add8e6;
+}
+.fix-1 .content {
+    width: 660px; 
+    padding: 30px;
+    border: 1px solid #ccc;
+    float: left;
+    background: #f0e68c;
+}
+
+.fix-2 .sidebar {
+    width: 258px; 
+    padding: 20px;
+    border: 1px solid #ccc;
+    float: left;
+    background: #add8e6;
+}
+.fix-2 .content {
+    width: 598px; 
+    padding: 30px;
+    border: 1px solid #ccc;
+    float: left;
+    background: #f0e68c;
+}
