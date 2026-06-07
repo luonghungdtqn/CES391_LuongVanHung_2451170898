@@ -1,107 +1,149 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <title>Form đăng ký</title>
-</head>
-<body>
-
-<h2>Form Đăng ký Tài Khoản</h2>
-
-<form action="#" method="POST">
-
-    <!-- Fieldset 1 -->
-    <fieldset>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng ký tài khoản - E-Commerce</title>
+  </head>
+  <body>
+    <h1>Đăng ký tài khoản</h1>
+    <form action="#" method="POST" id="registerForm">
+      <fieldset>
         <legend>Thông tin cá nhân</legend>
 
-        <label for="hoten">Họ tên:</label><br>
-        <input type="text" id="hoten" name="hoten"
-               placeholder="Nhập họ tên"
-               required minlength="2" maxlength="50"><br><br>
+        <label for="fullname">Họ và tên:</label>
+        <input
+          type="text"
+          id="fullname"
+          name="fullname"
+          required
+          minlength="2"
+          maxlength="50"
+          placeholder="Lương Văn Hưng"
+        />
 
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email"
-               placeholder="example@gmail.com"
-               required><br><br>
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          placeholder="luonghungdtqnvn@gmail.com"
+        />
 
-        <label for="sdt">Số điện thoại:</label><br>
-        <input type="tel" id="sdt" name="sdt"
-               placeholder="0123456789"
-               pattern="[0-9]{10}"><br><br>
+        <label for="phone">Số điện thoại:</label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          pattern="[0-9]{10}"
+          required
+          placeholder="0123456789"
+          title="Nhập 10 chữ số"
+        />
 
-        <label for="ngaysinh">Ngày sinh:</label><br>
-        <input type="date" id="ngaysinh" name="ngaysinh"
-               max="2026-04-23"><br><br>
-    </fieldset>
+        <label for="birthday">Ngày sinh:</label>
+        <input
+          type="date"
+          id="birthday"
+          name="birthday"
+          max="2026-03-23"
+          required
+        />
+      </fieldset>
 
-    <!-- Fieldset 2 -->
-    <fieldset>
+      <fieldset>
         <legend>Tài khoản</legend>
 
-        <label for="user">Username:</label><br>
-        <input type="text" id="user" name="user"
-               placeholder="3-20 ký tự, chữ/số/_"
-               pattern="[A-Za-z0-9_]{3,20}"><br><br>
+        <label for="username">Username:</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          pattern="[a-zA-Z0-9_]{3,20}"
+          required
+          placeholder="luongvanhung"
+          title="3-20 ký tự, chỉ chữ cái, số, underscore"
+        />
 
-        <label for="pass">Password:</label><br>
-        <input type="password" id="pass" name="pass"
-               placeholder="Ít nhất 8 ký tự, có chữ hoa và số"
-               minlength="8"
-               pattern="(?=.*[A-Z])(?=.*[0-9]).{8,}"><br><br>
+        <label for="password">Mật khẩu:</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          minlength="8"
+          required
+          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+          placeholder="Mật khẩu mạnh"
+          title="Ít nhất 8 ký tự, gồm chữ hoa, thường, và số"
+        />
 
-        <label for="repass">Xác nhận password:</label><br>
-        <input type="password" id="repass" name="repass"
-               placeholder="Nhập lại mật khẩu"
-               minlength="8"
-               pattern="(?=.*[A-Z])(?=.*[0-9]).{8,}"><br><br>
-    </fieldset>
+        <label for="confirm_password">Xác nhận mật khẩu:</label>
+        <input
+          type="password"
+          id="confirm_password"
+          name="confirm_password"
+          minlength="8"
+          required
+          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+          placeholder="Nhập lại mật khẩu"
+        />
+      </fieldset>
 
-    <!-- Fieldset 3 -->
-    <fieldset>
+      <fieldset>
         <legend>Thông tin giao hàng</legend>
 
-        <label for="city">Thành phố:</label><br>
-        <select id="city" name="city">
-            <option value="">-- Chọn thành phố --</option>
-            <option>Hà Nội</option>
-            <option>TP.HCM</option>
-            <option>Đà Nẵng</option>
-            <option>Hải Phòng</option>
-            <option>Cần Thơ</option>
-        </select><br><br>
+        <label for="city">Thành phố:</label>
+        <select id="city" name="city" required>
+          <option value="">Chọn thành phố</option>
+          <option value="hanoi">Hà Nội</option>
+          <option value="saigon">Sài Gòn</option>
+          <option value="dalat">Đà Lạt</option>
+          <option value="haiphong">Hải Phòng</option>
+          <option value="ninhbinh">Ninh Bình</option>
+        </select>
 
-        <label for="district">Quận/Huyện:</label><br>
-        <select id="district" name="district">
-            <option>Quận 1</option>
-            <option>Quận 2</option>
-            <option>Quận 3</option>
-        </select><br><br>
+        <label for="district">Quận/Huyện:</label>
+        <select id="district" name="district" required>
+          <option value="">Chọn quận/huyện</option>
+          <option value="quan1">Quận 1</option>
+          <option value="quan3">Quận 3</option>
+          <option value="quan5">Quận 5</option>
+          <option value="quan10">Quận 10</option>
+        </select>
 
-        <label for="diachi">Địa chỉ chi tiết:</label><br>
-        <textarea id="diachi" name="diachi"
-                  placeholder="Số nhà, tên đường..."
-                  rows="3"></textarea><br><br>
+        <label for="address">Địa chỉ chi tiết:</label>
+        <textarea
+          id="address"
+          name="address"
+          rows="3"
+          placeholder="Số nhà, đường, phường/xã..."
+        ></textarea>
+      </fieldset>
 
-        <p>Giới tính:</p>
-        <input type="radio" id="nam" name="gt" value="nam">
-        <label for="nam">Nam</label>
+      <fieldset>
+        <legend>Giới tính:</legend>
+        <label>
+          <input type="radio" name="gioitinh" value="nam" required />
+          Nam
+        </label>
+        <label>
+          <input type="radio" name="gioitinh" value="nu" />
+          Nữ
+        </label>
+        <label>
+          <input type="radio" name="gioitinh" value="khac" />
+          Khác
+        </label>
+      </fieldset>
 
-        <input type="radio" id="nu" name="gt" value="nu">
-        <label for="nu">Nữ</label>
+      <label>
+        <input type="checkbox" name="agree" id="agree" required />
+        Tôi đồng ý với điều khoản và chính sách bảo mật
+      </label>
 
-        <input type="radio" id="khac" name="gt" value="khac">
-        <label for="khac">Khác</label>
-    </fieldset>
-
-    <br>
-
-    <input type="checkbox" id="terms" required>
-    <label for="terms">Tôi đồng ý điều khoản</label><br><br>
-
-    <button type="submit">Submit</button>
-    <button type="reset">Reset</button>
-
-</form>
-
-</body>
+      <button type="submit">Đăng ký</button>
+      <button type="reset">Làm lại</button>
+    </form>
+  </body>
 </html>

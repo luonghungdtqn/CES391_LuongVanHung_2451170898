@@ -1,134 +1,226 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <title>Đặt hàng</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout</title>
+  </head>
+  <body>
+    <h1>Thanh toán & Đặt hàng</h1>
 
-<h2>Đặt hàng</h2>
+    <form action="#" method="POST" id="checkoutForm">
+      <!-- Phần 1: Giỏ hàng -->
+      <section>
+        <h2>Giỏ hàng</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>STT</th>
+              <th>Sản phẩm</th>
+              <th>Đơn giá</th>
+              <th>Số lượng</th>
+              <th>Thành tiền</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>iPhone 16 Pro Max</td>
+              <td>25.990.000đ</td>
+              <td>1</td>
+              <td>25.990.000đ</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>AirPods Pro 2</td>
+              <td>5.990.000đ</td>
+              <td>2</td>
+              <td>11.980.000đ</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>MagSafe Charger</td>
+              <td>1.290.000đ</td>
+              <td>1</td>
+              <td>1.290.000đ</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="4">Tổng cộng:</td>
+              <td>39.260.000đ</td>
+            </tr>
+          </tfoot>
+        </table>
 
-<!-- BONUS: tìm sản phẩm -->
-<label for="search">Tìm sản phẩm:</label>
-<input list="sp" id="search" name="search" placeholder="Nhập tên...">
+        <p>Tổng tiền: <output name="total">39.260.000đ</output></p>
 
-<datalist id="sp">
-    <option value="Tivi Samsung">
-    <option value="Tivi Sony">
-    <option value="Tivi LG">
-</datalist>
+        <p>
+          Điểm tích lũy hiện tại:
+          <meter value="1500" min="0" max="5000" optimum="3000"></meter> 1500
+          điểm
+        </p>
+      </section>
 
-<br><br>
+      <section>
+        <h2>Thông tin thanh toán</h2>
 
-<!-- Phần 1: Giỏ hàng -->
-<table border="1" width="600">
-    <thead>
-        <tr>
-            <th>STT</th>
-            <th>Sản phẩm</th>
-            <th>Đơn giá</th>
-            <th>Số lượng</th>
-            <th>Thành tiền</th>
-        </tr>
-    </thead>
+        <label for="product_search">Tìm kiếm sản phẩm:</label>
+        <input
+          type="search"
+          id="product_search"
+          name="product_search"
+          placeholder="Nhập tên sản phẩm..."
+          list="products"
+        />
+        <datalist id="products">
+          <option value="iPhone 16 Pro Max"></option>
+          <option value="iPhone 16"></option>
+          <option value="MacBook Pro M4"></option>
+          <option value="AirPods Pro 2"></option>
+          <option value="Apple Watch Ultra 2"></option>
+        </datalist>
 
-    <tbody>
-        <tr>
-            <td>1</td>
-            <td>Tivi Samsung</td>
-            <td>12000000</td>
-            <td>3</td>
-            <td>36000000</td>
-        </tr>
+        <fieldset>
+          <legend>Phương thức thanh toán</legend>
+          <div>
+            <label>
+              <input type="radio" name="payment_method" value="cod" required />
+              Thanh toán khi nhận hàng </label
+            ><br />
+            <label>
+              <input type="radio" name="payment_method" value="bank_transfer" />
+              Chuyển khoản ngân hàng </label
+            ><br />
+            <label>
+              <input type="radio" name="payment_method" value="e_wallet" />
+              Ví điện tử
+            </label>
+          </div>
+        </fieldset>
 
-        <tr>
-            <td>2</td>
-            <td>Tivi Sony</td>
-            <td>10000000</td>
-            <td>1</td>
-            <td>10000000</td>
-        </tr>
+        <label for="coupon">Mã giảm giá:</label>
+        <input
+          type="text"
+          id="coupon"
+          name="coupon"
+          pattern="SALE[0-9]{4}"
+          placeholder="Nhập mã (VD: SALE2026)"
+          title="Format: SALE + 4 chữ số"
+        />
 
-        <tr>
-            <td>3</td>
-            <td>Tivi LG</td>
-            <td>15000000</td>
-            <td>4</td>
-            <td>60000000</td>
-        </tr>
-    </tbody>
+        <label for="note">Ghi chú:</label>
+        <textarea
+          id="note"
+          name="note"
+          rows="3"
+          placeholder="Ghi chú thêm cho đơn hàng..."
+        ></textarea>
+      </section>
 
-    <tfoot>
-        <tr>
-            <td colspan="4">Tổng cộng</td>
-            <td><output>106000000</output></td>
-        </tr>
-    </tfoot>
-</table>
+      <section>
+        <h2>Thông tin giao hàng</h2>
 
-<br>
+        <fieldset>
+          <legend>Thông tin người nhận</legend>
 
-<!-- Phần 2 + 3 -->
-<form action="#" method="POST">
+          <label for="receiver_name">Họ tên người nhận:</label>
+          <input
+            type="text"
+            id="receiver_name"
+            name="receiver_name"
+            required
+            minlength="2"
+            placeholder="Nguyễn Thành Đạt"
+          />
 
-    <fieldset>
-        <legend>Thanh toán</legend>
+          <label for="receiver_phone">Số điện thoại:</label>
+          <input
+            type="tel"
+            id="receiver_phone"
+            name="receiver_phone"
+            pattern="[0-9]{10}"
+            required
+            placeholder="0123456789"
+          />
 
-        <p>Phương thức:</p>
+          <label for="receiver_email">Email:</label>
+          <input
+            type="email"
+            id="receiver_email"
+            name="receiver_email"
+            required
+            placeholder="datthanh@gmail.com"
+          />
+        </fieldset>
 
-        <input type="radio" id="cod" name="pay">
-        <label for="cod">COD</label>
+        <fieldset>
+          <legend>Địa chỉ giao hàng</legend>
 
-        <input type="radio" id="bank" name="pay">
-        <label for="bank">Chuyển khoản</label>
+          <label for="delivery_city">Thành phố:</label>
+          <select id="delivery_city" name="delivery_city" required>
+            <option value="">-- Chọn thành phố --</option>
+            <option value="hanoi">Hà Nội</option>
+            <option value="hcm">TP. Hồ Chí Minh</option>
+            <option value="danang">Đà Nẵng</option>
+            <option value="daklak">Đắk Lắk</option>
+            <option value="tayninh">Tây Ninh</option>
+          </select>
 
-        <input type="radio" id="ewallet" name="pay">
-        <label for="ewallet">Ví điện tử</label>
+          <label for="delivery_district">Quận/Huyện:</label>
+          <select id="delivery_district" name="delivery_district" required>
+            <option value="">-- Chọn quận/huyện --</option>
+            <option value="quan1">Quận 1</option>
+            <option value="hoangmai">Hoàng Mai</option>
+            <option value="quan5">Quận 5</option>
+            <option value="thanhxuan">Thanh Xuân</option>
+          </select>
 
-        <br><br>
+          <label for="delivery_address">Địa chỉ chi tiết:</label>
+          <textarea
+            id="delivery_address"
+            name="delivery_address"
+            rows="3"
+            required
+            placeholder="Số nhà, đường, phường/xã..."
+          ></textarea>
+        </fieldset>
 
-        <label for="sale">Mã giảm giá:</label><br>
-        <input type="text" id="sale" name="sale"
-               placeholder="SALE2026"
-               pattern="SALE[0-9]{4}">
+        <fieldset>
+          <legend>Thời gian giao hàng</legend>
+          <label for="delivery_date">Ngày giao hàng mong muốn:</label>
+          <input
+            type="date"
+            id="delivery_date"
+            name="delivery_date"
+            min="2026-04-29"
+            required
+          />
 
-        <br><br>
+          <label for="delivery_time">Khung giờ giao hàng:</label>
+          <select id="delivery_time" name="delivery_time" required>
+            <option value="">-- Chọn khung giờ --</option>
+            <option value="morning">Sáng 8h - 12h</option>
+            <option value="afternoon">Chiều 14h - 18h</option>
+            <option value="evening">Tối 18h - 21h</option>
+          </select>
 
-        <label for="note">Ghi chú:</label><br>
-        <textarea id="note" rows="3"></textarea>
-    </fieldset>
+          <label for="delivery_days">Thời gian giao hàng dự kiến: 3 ngày</label>
+          <input
+            type="range"
+            id="delivery_days"
+            name="delivery_days"
+            min="1"
+            max="7"
+            step="1"
+            value="3"
+          />
+        </fieldset>
+      </section>
 
-    <br>
-
-    <fieldset>
-        <legend>Giao hàng</legend>
-
-        <label for="date">Ngày giao:</label><br>
-        <input type="date" id="date" name="date"
-               min="2026-04-24"><br><br>
-
-        <label for="time">Khung giờ:</label><br>
-        <select id="time">
-            <option>Sáng 8-12h</option>
-            <option>Chiều 14-18h</option>
-            <option>Tối 18-21h</option>
-        </select><br><br>
-
-        <label for="range">Số ngày giao:</label><br>
-        <input type="range" id="range" min="1" max="7" step="1"><br><br>
-
-        <!-- bonus -->
-        <p>Điểm tích lũy:</p>
-        <progress value="60" max="100"></progress>
-    </fieldset>
-
-    <br>
-
-    <button type="submit" aria-label="Xác nhận đặt hàng">
-        Đặt hàng
-    </button>
-
-</form>
-
-</body>
+      <button type="submit" aria-label="Xác nhận đặt hàng">
+        Xác nhận đặt hàng
+      </button>
+    </form>
+  </body>
 </html>
