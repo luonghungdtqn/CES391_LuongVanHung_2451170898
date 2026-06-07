@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Đoán Số</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #1a1a2e;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .box {
+        background-color: #16213e;
+        padding: 30px;
+        border-radius: 10px;
+        width: 350px;
+        text-align: center;
+      }
+
+      input {
+        width: 200px;
+        padding: 10px;
+        margin-top: 15px;
+      }
+
+      button {
+        padding: 10px 15px;
+        margin-top: 15px;
+        cursor: pointer;
+      }
+
+      #result-msg {
+        margin-top: 20px;
+        font-weight: bold;
+      }
+
+      #guessed-list {
+        margin-top: 10px;
+        font-size: 14px;
+      }
+
+      #btn-restart {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box">
+      <h1>Game Đoán Số</h1>
+
+      <p>Máy đã chọn số từ 1 đến 100</p>
+
+      <p>
+        Lượt còn lại:
+        <span id="turns-left">7</span>
+      </p>
+
+      <input
+        type="number"
+        id="guess-input"
+        placeholder="Nhập số"
+        onkeypress="handleKeyPress(event)"
+      />
+
+      <br />
+
+      <button id="btn-guess" onclick="makeGuess()">Đoán</button>
+
+      <p id="hint-msg"></p>
+
+      <p id="result-msg"></p>
+
+      <p id="guessed-list"></p>
+
+      <button id="btn-restart" onclick="initGame()">Chơi lại</button>
+    </div>
+
+    <script src="guess.js"></script>
+
+    <script>
+      initGame();
+    </script>
+  </body>
+</html>
