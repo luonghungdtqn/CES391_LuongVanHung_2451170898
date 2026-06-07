@@ -1,24 +1,31 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <title>Box Model Lab</title>
-    <link rel="stylesheet" href="boxmodel.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>B2 — Box Model Lab</title>
+    <link rel="stylesheet" href="css/boxmodel.css" />
+  </head>
+  <body>
+    <h2>Phần 1 — content-box vs border-box</h2>
 
-    <h2>Phần 1: Content-box vs Border-box</h2>
-    <div class="box content-box">Hộp 1: Content-box</div>
-    <div class="box border-box">Hộp 2: Border-box</div>
-
-    <hr>
-
-    <h2>Phần 2: Layout 3 Cột (Container 1000px)</h2>
-    <div class="container">
-        <aside class="sidebar">Sidebar (250px)</aside>
-        <main class="main-content">Content (500px)</main>
-        <aside class="ads">Ads (250px)</aside>
+    <div class="box content-box">
+      <p>Hộp 1: content-box</p>
+      <p>width: 300px + padding 20px + border 5px</p>
+      <p>→ thực tế = 350px</p>
     </div>
 
-</body>
+    <div class="box border-box">
+      <p>Hộp 2: border-box</p>
+      <p>width: 300px + padding 20px + border 5px</p>
+      <p>→ thực tế = 300px</p>
+    </div>
+
+    <h2>Phần 2 — Layout 3 cột (1000px)</h2>
+
+    <div class="container">
+      <div class="sidebar">Sidebar<br />250px</div>
+      <div class="content">Content<br />500px</div>
+      <div class="ads">Ads<br />250px</div>
+    </div>
+  </body>
 </html>

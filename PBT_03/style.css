@@ -1,76 +1,197 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f7f6;
-    color: #333;
-    line-height: 1.6;
+  font-family: "Segoe UI", Tplus, sans-serif;
+  background-color: wheat;
+  color: #2d3748;
+  line-height: 1.7;
 }
 
-#app-header {
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-    color: #ffffff;
-    padding: 30px 20px;
-    text-align: center;
+header {
+  background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 60%, #3182ce 100%);
+  color: white;
+  padding: 25px 0;
+  position: sticky;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+  color: white;
 }
 
 nav a {
-    text-decoration: none;
-    color: #cbdcf7;
-    margin: 0 15px;
-    font-weight: bold;
-    transition: 0.3s;
+  color: #bee3f8;
+  text-decoration: none;
+  margin: 0 14px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  padding-bottom: 3px;
+  transition:
+    color 0.2s,
+    border-bottom 0.2s;
 }
 
 nav a:hover {
-    color: #ffffff;
-    text-decoration: underline;
+  color: #ffffff;
+  text-decoration: underline;
 }
 
+/* Class selector: .active */
 nav a.active {
-    color: #ffeb3b;
-    border-bottom: 2px solid #ffeb3b;
-    padding-bottom: 5px;
+  color: #fefcbf;
+  border-bottom: 2px solid #fefcbf;
+  text-decoration: none;
 }
 
+/* =====================
+   MAIN CONTENT
+   ===================== */
+main {
+  max-width: 860px;
+  margin: 36px auto;
+  padding: 0 24px;
+}
+
+section {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 28px 32px;
+  margin-bottom: 28px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+}
+
+/* ID selector: #About */
+#About {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+}
+
+#About figure {
+  margin: 0;
+  text-align: center;
+}
+
+#About img {
+  border-radius: 50%;
+  border: 4px solid #2b6cb0;
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+}
+
+#About figcaption {
+  font-size: 0.8rem;
+  color: #718096;
+  margin-top: 6px;
+}
+
+#About article {
+  flex: 1;
+}
+
+h2 {
+  color: #1a365d;
+  font-size: 1.3rem;
+  border-left: 4px solid #2b6cb0;
+  padding-left: 12px;
+  margin-bottom: 18px;
+}
+
+/* =====================
+   TABLE KỸ NĂNG
+   ===================== */
 table {
-    width: 100%;
-    max-width: 800px;
-    margin: 20px auto;
-    border-collapse: collapse;
-    background: white;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
 }
 
-table th, table td {
-    padding: 12px 15px;
-    border: 1px solid #ddd;
-    text-align: left;
+/* Header row: background đậm, text trắng */
+thead tr {
+  background-color: #1a365d;
+  color: white;
 }
 
-table tr:first-child, thead tr {
-    background-color: #1e3c72;
-    color: #ffffff;
+thead th {
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  letter-spacing: 0.4px;
 }
 
-table tr:nth-child(even) {
-    background-color: #f2f2f2;
+tbody td {
+  padding: 11px 16px;
+  border-bottom: 1px solid #e2e8f0;
 }
 
-table tr:hover {
-    background-color: #e2e6ea;
-    cursor: default;
+/* Zebra striping: tr:nth-child(even) */
+tbody tr:nth-child(even) {
+  background-color: #ebf4ff;
 }
 
+/* Hover row: tr:hover pseudo-class */
+tbody tr:hover {
+  background-color: #bee3f8;
+  cursor: default;
+}
+
+tfoot td {
+  padding: 10px 16px;
+  font-style: italic;
+  color: #718096;
+  font-size: 0.88rem;
+  background-color: #f7fafc;
+  border-top: 2px solid #cbd5e0;
+}
+
+/* =====================
+   ASIDE
+   ===================== */
+aside {
+  max-width: 860px;
+  margin: 0 auto 28px auto;
+  padding: 0 24px;
+}
+
+aside section,
+aside > * {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 24px 32px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+}
+
+aside h2 {
+  color: #1a365d;
+  font-size: 1.2rem;
+  border-left: 4px solid #2b6cb0;
+  padding-left: 12px;
+  margin-bottom: 14px;
+}
+
+aside p {
+  margin: 6px 0;
+  color: #4a5568;
+}
+
+/* =====================
+   FOOTER - element selector
+   ===================== */
 footer {
-    background-color: #222;
-    color: #bbb;
-    text-align: center;
-    padding: 20px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+  background-color: #1a365d;
+  color: #a0aec0;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.88rem;
+  letter-spacing: 0.4px;
+}
+
+footer p {
+  margin: 0;
 }

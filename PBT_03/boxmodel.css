@@ -1,48 +1,49 @@
 .box {
-    width: 300px;
-    padding: 20px;
-    border: 5px solid black;
-    display: inline-block;
-    margin-right: 10px;
-    vertical-align: top;
-    background-color: #ffdada;
+  width: 300px;
+  padding: 20px;
+  border: 5px solid steelblue;
+  margin-bottom: 16px;
+  display: inline-block;
+  vertical-align: top;
 }
 
 .content-box {
-    box-sizing: content-box; /* Mặc định */
+  box-sizing: content-box; /* mặc định: thực tế = 350px */
+  border-color: tomato;
 }
 
 .border-box {
-    box-sizing: border-box;
+  box-sizing: border-box; /* thực tế = 300px */
+  border-color: steelblue;
 }
 
+/* Phần 2 — Layout 3 cột */
 .container {
-    width: 1000px;
-    border: 2px dashed red;
-    display: flex;
-    margin-top: 20px;
+  box-sizing: border-box;
+  width: 1000px;
+  display: flex;
 }
 
-.container > * {
-    box-sizing: border-box; 
+.sidebar,
+.content,
+.ads {
+  box-sizing: border-box;
 }
 
 .sidebar {
-    width: 250px;
-    background-color: #e0e0e0;
-    padding: 15px;
+  width: 250px;
+  padding: 15px;
+  background: #dde;
 }
 
-.main-content {
-    width: 500px;
-    background-color: #fff;
-    padding: 20px;
-    border-left: 1px solid #ccc;
-    border-right: 1px solid #ccc;
+.content {
+  width: 500px;
+  padding: 20px;
+  background: #fff;
 }
 
 .ads {
-    width: 250px;
-    background-color: #e0e0e0;
-    padding: 15px;
+  width: 250px;
+  padding: 15px;
+  background: #dde;
 }

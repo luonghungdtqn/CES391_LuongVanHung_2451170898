@@ -1,41 +1,46 @@
-.container {
-    width: 960px;
-    margin: 0 auto;
-    background-color: #eee;
-    margin-bottom: 20px;
+* {
+  box-sizing: border-box;
 }
 
-.clearfix { clear: both; }
-
-.fix-1 .sidebar, .fix-1 .content {
-    box-sizing: border-box; 
-}
-.fix-1 .sidebar {
-    width: 300px; 
-    padding: 20px;
-    border: 1px solid #ccc;
-    float: left;
-    background: #add8e6;
-}
-.fix-1 .content {
-    width: 660px; 
-    padding: 30px;
-    border: 1px solid #ccc;
-    float: left;
-    background: #f0e68c;
+.solution-1 {
+  width: 960px;
+  margin: 20px 0;
 }
 
-.fix-2 .sidebar {
-    width: 258px; 
-    padding: 20px;
-    border: 1px solid #ccc;
-    float: left;
-    background: #add8e6;
+.solution-1 .sidebar {
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background: #f0f0f0;
+  float: left;
 }
-.fix-2 .content {
-    width: 598px; 
-    padding: 30px;
-    border: 1px solid #ccc;
-    float: left;
-    background: #f0e68c;
+
+.solution-1 .content {
+  width: 660px;
+  padding: 30px;
+  border: 1px solid #ccc;
+  background: white;
+  float: left;
+}
+
+.solution-2 {
+  width: 960px;
+  margin: 20px 0;
+  box-sizing: content-box; /* Mặc định, dùng để minh họa */
+}
+
+.solution-2 .sidebar-adjusted {
+  width: 280px; /* Điều chỉnh lại */
+  padding: 20px;
+  border: 1px solid #ccc;
+  background: #ffe0e0;
+  float: left;
+}
+
+.solution-2 .content-adjusted {
+  width: 628px; /* Điều chỉnh lại */
+  padding: 30px;
+  border: 1px solid #ccc;
+  background: #fff9e0;
+  float: left;
 }
