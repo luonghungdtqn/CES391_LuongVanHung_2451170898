@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 500px; margin: 30px auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px; }
+        .search-box { display: flex; gap: 10px; margin-bottom: 20px; }
+        input { flex: 1; padding: 8px; font-size: 16px; }
+        button { padding: 8px 15px; cursor: pointer; }
+        
+        /* 3 States Styling */
+        #loading { display: none; text-align: center; margin: 20px 0; }
+        .spinner { border: 4px solid #f3f3f3; border-top: 4px solid #3498db; border-radius: 50%; width: 30px; height: 30px; animation: spin 1s linear infinite; margin: auto; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        
+        #error { display: none; color: red; font-weight: bold; padding: 10px; background: #ffe6e6; border-radius: 4px; }
+        #weather-info { display: none; background: #eef7fc; padding: 15px; border-radius: 4px; }
+        
+        /* History Styling */
+        .history { margin-top: 20px; border-top: 1px solid #ddd; padding-top: 15px; }
+        .history-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+        .history-btn { background: #e0e0e0; border: none; padding: 5px 10px; border-radius: 15px; cursor: pointer; font-size: 14px; }
+        .history-btn:hover { background: #ccc; }
+    </style>
+</head>
+<body>
+
+    <h2>Dự báo thời tiết</h2>
+    
+    <div class="search-box">
+        <input type="text" id="cityInput" placeholder="Nhập tên thành phố (vd: Hanoi, Tokyo...)">
+        <button id="searchBtn">Tìm</button>
+    </div>
+
+    <div id="loading">
+        <div class="spinner"></div>
+        <p>Đang tải dữ liệu thời tiết...</p>
+    </div>
+
+    <div id="error">Có lỗi xảy ra!</div>
+
+    <div id="weather-info">
+        <h3 id="cityName">Thành phố</h3>
+        <p><strong>Nhiệt độ:</strong> <span id="temp">--</span>°C</p>
+        <p><strong>Độ ẩm:</strong> <span id="humidity">--</span>%</p>
+        <p><strong>Tốc độ gió:</strong> <span id="wind">--</span> km/h</p>
+    </div>
+
+    <div class="history">
+        <strong>Lịch sử tìm kiếm (5 gần nhất):</strong>
+        <div id="historyTags" class="history-tags"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
