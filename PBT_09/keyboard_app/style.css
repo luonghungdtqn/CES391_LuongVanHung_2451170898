@@ -1,0 +1,247 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #1a1a2e;
+    color: #eee;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+.hint {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+kbd {
+    background: #333;
+    border: 1px solid #555;
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-family: monospace;
+}
+
+
+.gallery-section {
+    background: #16213e;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.gallery-section h2 {
+    margin-bottom: 10px;
+}
+
+
+.gallery {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    overflow-x: auto;
+    padding: 10px 0;
+}
+
+.gallery .thumb {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 3px solid transparent;
+    transition: border-color 0.3s, transform 0.2s;
+}
+
+.gallery .thumb:hover {
+    transform: scale(1.05);
+}
+
+.gallery .thumb.active {
+    border-color: #4CAF50;
+}
+
+.gallery .thumb:focus {
+    outline: 3px solid #2196F3;
+    outline-offset: 2px;
+}
+
+
+.gallery-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.gallery-controls button {
+    padding: 10px 20px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.gallery-controls button:hover {
+    background: #45a049;
+}
+
+.gallery-controls button:focus {
+    outline: 3px solid #2196F3;
+    outline-offset: 2px;
+}
+
+#imageCounter {
+    font-size: 16px;
+    color: #aaa;
+}
+
+
+.current-image {
+    text-align: center;
+}
+
+.current-image img {
+    max-width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+.command-palette {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 100px;
+}
+
+.command-palette.show {
+    display: flex;
+}
+
+.palette-content {
+    background: #2d2d2d;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+#commandInput {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background: #3d3d3d;
+    color: white;
+    font-size: 18px;
+}
+
+#commandInput:focus {
+    outline: none;
+}
+
+#commandList {
+    list-style: none;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+#commandList li {
+    padding: 12px 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #444;
+}
+
+#commandList li:hover,
+#commandList li.selected {
+    background: #4CAF50;
+}
+
+#commandList li .shortcut {
+    color: #888;
+    font-size: 12px;
+}
+
+#commandList li:hover .shortcut,
+#commandList li.selected .shortcut {
+    color: #ddd;
+}
+
+
+.image-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+}
+
+.image-modal.show {
+    display: flex;
+}
+
+.image-modal .modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.image-modal img {
+    max-width: 100%;
+    max-height: 80vh;
+    border-radius: 10px;
+}
+
+.close-btn {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    font-size: 35px;
+    color: white;
+    cursor: pointer;
+}
+
+
+*:focus {
+    outline: 3px solid #2196F3;
+    outline-offset: 2px;
+}
+
+button:focus,
+input:focus {
+    outline: 3px solid #2196F3;
+    outline-offset: 2px;
+}

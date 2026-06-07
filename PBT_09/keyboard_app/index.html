@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🎹 Keyboard Navigation App</h1>
+            <p class="hint">Nhấn <kbd>Ctrl</kbd> + <kbd>K</kbd> để mở Command Palette</p>
+        </header>
+
+
+        <div class="gallery-section">
+            <h2>📷 Image Gallery</h2>
+            <p class="hint">
+                <kbd>←</kbd> <kbd>→</kbd> Chuyển ảnh |
+                <kbd>1-9</kbd> Nhảy đến ảnh |
+                <kbd>Space</kbd> Play/Pause |
+                <kbd>Esc</kbd> Đóng modal
+            </p>
+
+            <div class="gallery" id="gallery">
+
+            </div>
+
+            <div class="gallery-controls">
+                <button id="prevBtn" aria-label="Previous image">⬅️ Trước</button>
+                <span id="imageCounter">1 / 9</span>
+                <button id="nextBtn" aria-label="Next image">Sau ➡️</button>
+                <button id="playBtn" aria-label="Play slideshow">▶️ Play</button>
+            </div>
+
+            <div class="current-image">
+                <img id="mainImage" src="https://placehold.co/600x400?text=Image+1" alt="Main image">
+            </div>
+        </div>
+    </div>
+
+
+    <div id="commandPalette" class="command-palette" role="dialog" aria-label="Command Palette">
+        <div class="palette-content">
+            <input type="text" id="commandInput" placeholder="Nhập lệnh..." aria-label="Search commands">
+            <ul id="commandList">
+
+            </ul>
+        </div>
+    </div>
+
+
+    <div id="imageModal" class="image-modal" role="dialog" aria-label="Image preview">
+        <div class="modal-content">
+            <span id="closeBtn" class="close-btn" aria-label="Close">&times;</span>
+            <img id="modalImage" src="" alt="Preview">
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
