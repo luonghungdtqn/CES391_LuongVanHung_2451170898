@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>📝 Đăng Ký Tài Khoản</h1>
+
+        <form id="registerForm">
+
+            <div class="form-group">
+                <label for="name">Họ và tên</label>
+                <input type="text" id="name" placeholder="Nhập họ tên (2-50 ký tự)">
+                <span class="status-icon" id="nameStatus"></span>
+                <div class="error-message" id="nameError"></div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" id="email" placeholder="example@email.com">
+                <span class="status-icon" id="emailStatus"></span>
+                <div class="error-message" id="emailError"></div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="password">Mật khẩu</label>
+                <input type="password" id="password" placeholder="Nhập mật khẩu">
+                <span class="status-icon" id="passwordStatus"></span>
+                <div class="password-strength">
+                    <div class="strength-bar" id="strengthBar"></div>
+                </div>
+                <div class="strength-text" id="strengthText"></div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="confirmPassword">Xác nhận mật khẩu</label>
+                <input type="password" id="confirmPassword" placeholder="Nhập lại mật khẩu">
+                <span class="status-icon" id="confirmStatus"></span>
+                <div class="error-message" id="confirmError"></div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="phone">Số điện thoại</label>
+                <input type="text" id="phone" placeholder="0901-234-567">
+                <span class="status-icon" id="phoneStatus"></span>
+                <div class="error-message" id="phoneError"></div>
+            </div>
+
+
+            <button type="submit" id="submitBtn" disabled>Đăng Ký</button>
+        </form>
+    </div>
+
+
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <h2>🎉 Đăng ký thành công!</h2>
+            <div id="userInfo"></div>
+            <button id="closeModal">Đóng</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
